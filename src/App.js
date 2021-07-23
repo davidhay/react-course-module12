@@ -13,7 +13,7 @@ const App = (props) => {
   return (
     <div className="app">
       <h1>Hi there!</h1>
-      <DemoOutput show={showParagraph} />
+      <DemoOutput show={false} />
       <Button onClick={toggleParagraphHandler}>Toggle Paragraph</Button>
     </div>
   );

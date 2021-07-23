@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Button from "./components/UI/Button/Button";
 import "./App.css";
 import DemoOutput from "./components/Demo/DemoOutput";
@@ -6,14 +6,16 @@ import DemoOutput from "./components/Demo/DemoOutput";
 const App = (props) => {
   console.log("App function running");
   const [showParagraph, setShowParagraph] = useState(false);
-  const toggleParagraphHandler = (event) => {
+
+  const toggleParagraphHandler = useCallback((event) => {
     event.preventDefault();
     setShowParagraph((prevState) => !prevState);
-  };
+  }, []);
+
   return (
     <div className="app">
       <h1>Hi there!</h1>
-      <DemoOutput show={false} />
+      <DemoOutput show={showParagraph} />
       <Button onClick={toggleParagraphHandler}>Toggle Paragraph</Button>
     </div>
   );
